@@ -1,16 +1,57 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+li{
+    list-style: none;
+}
 $bk-ground:rgb(41, 36, 36);
 $color:rgb(219, 213, 213);
 
 body{
     background-color: $bk-ground;
     color: $color;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-.header{
-    .container{
-        width: 1140px;
-        margin: 0 auto;
-        h1{
-            color: aqua;
-        }
+.field{
+    width: 500px;
+    height: 500px;
+    background-color: cadetblue;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    &__square{
+        width: 50px;
+        height: 50px;
+        border: 1px solid #8a7a7a;
     }
+}
+.menu{
+    font-size: 25px;
+    &__item{
+        display: flex;
+    }
+}
+.select{
+    font-size: 25px;
+    height: 27px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    &__option{
+        cursor: pointer;
+    }
+}
+.option-active{
+    color: red;
+    order: -1;
+}
+.levels-active{
+    height: auto;
 }
