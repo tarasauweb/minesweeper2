@@ -30,7 +30,7 @@ export const functionLevels = (levelsElement,select)=>{
   })
 }
 
-export const listener = (mines)=>{
+export const setMines = (mines,img)=>{
   let startGame = false;
   const nodeSquareAll = document.querySelectorAll('.field__square');
   const field = document.querySelector('.field');
@@ -55,15 +55,45 @@ export const listener = (mines)=>{
         arrNumbers.push(number)
       }
       arrNumbers.forEach(item=>{
-        nodeSquareAll[item].setAttribute('data-bomb' , true)
+        nodeSquareAll[item].setAttribute('data-bomb' , true);
+        nodeSquareAll[item].style.background = `url(${img}) no-repeat center center /cover`
+
       })
       startGame = true
     }
     else{
-      return
+      return startGame
     }
+    return startGame
     console.log(arrNumbers)
   })  
+}
+
+export const listenerFiled = (flags,imgFlag) => {
+  const field = document.querySelector('.field');
+  const spanFlags = document.querySelector('.span-flags');
+  field.addEventListener('contextmenu' , (e)=>{
+    e.preventDefault();
+    if(e.target.getAttribute('data-flag') === 'true') {
+      if(e.target.textContent === '?'){
+        e.target.removeAttribute('data-flag')
+        return e.target.textContent = '';
+      }
+      else{
+        e.target.style.background = ``;
+        e.target.textContent = '?'
+        return spanFlags.textContent = ++flags;
+      }
+      
+    }
+    else{
+      spanFlags.textContent = --flags;
+      e.target.style.background = `url(${imgFlag}) no-repeat center center /cover`;
+      e.target.setAttribute('data-flag' , 'true');
+    }
+   
+    console.log(flags,e.target)
+  })
 }
 
 function randomNum (min,max){

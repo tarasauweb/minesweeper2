@@ -15,8 +15,8 @@ const Menu = (rules)=>{
   ul.append(levels)
   levels.classList.add('menu__item')
   levels.textContent = 'level: ';
-  flagsLi.insertAdjacentHTML( 'afterbegin' ,`<img src="${flag}" class="flag-png" alt="flag"> <span>${objRules[rules].flags}</span>`);
-  bombLi.insertAdjacentHTML( 'afterbegin' ,`<img src="${bomb}" class="flag-png" alt="flag"> <span>${objRules[rules].mines}</span>`)
+  flagsLi.insertAdjacentHTML( 'afterbegin' ,`<img src="${flag}" class="flag-png" alt="flag"> <span class="span-flags">${objRules[rules].flags}</span>`);
+  bombLi.insertAdjacentHTML( 'afterbegin' ,`<img src="${bomb}" class="flag-png" alt="flag"> <span class="span-mines">${objRules[rules].mines}</span>`)
   levels.append(select)
   functionLevels(levels,select)
   ul.append(flagsLi)
