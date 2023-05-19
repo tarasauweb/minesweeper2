@@ -1,9 +1,11 @@
 import './style.scss';
 import objRules from './rules';
-import createField from './components/Field.js';
+import Field from './components/Field.js';
 import Menu from './components/Menu';
 const body = document.querySelector('.body');
 
-body.append(Menu())
+let levelStart = 'easy'
 
-createField(body,'easy')
+body.append(Menu(levelStart))
+
+Field(body,levelStart)
